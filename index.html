@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layout 管理界面大布局示例 - Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.8/css/layui.css" integrity="sha512-rS4sRT9gLRT9wNIcmJPoU7+DI1vteqW3Bm51AlhupZ6JUxMYLhk4dKeL7y2rPBsi3JKth+Oz/BNvNjQAnpWdiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .ws-bg-light{
+            background-color: #fff !important ;
+        }
+        .ws-header{
+            box-shadow: 0 1px 3px #99999936;
+        }
+        .ws-header-menu {
+            position: absolute;
+            right: 16px;
+            top: 0;
+        }
+        .ws-header-tool {
+            margin-left: 16px;
+        }
+        .ws-header-menu>*, .ws-header-tool>div {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .ws-header-tool>div {
+            margin-left: 16px;
+        }
+
+
+        .logo{
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+        }
+        .search{
+            margin-top:11px;
+            border:none;
+        }
+
+        .ws-header-theme .layui-form-switch {
+            top: -1px;
+            margin: 0;
+            height: 21px;
+            line-height: 20px;
+            box-sizing: border-box;
+        }
+        .ws-header-theme .layui-form-switch>i {
+            top: 3px;
+            width: 14px;
+            height: 14px;
+        }
+        .ws-header-more {
+            display: none;
+            line-height: 60px;
+            padding: 0 16px;
+            cursor: pointer;
+        }
+        .ws-header-menu .layui-nav {
+            padding: 0;
+        }
+        .footer{
+            text-align:center;
+            padding: 2rem 0 2rem 0;
+            margin-top: 5rem;
+            background-color: rgb(245, 245, 247);
+            color: rgba(0, 0, 0, 0.56) !important;
+        }
+    </style>
+    <link id="layui_theme_css"  rel="stylesheet">
+
+
+</head>
+<body  >
+<div class="layui-layout layui-layout-admin  ">
+    <div class="layui-header  ws-header ws-bg-light" >
+        <div class="layui-container"  >
+            <div class=" logo   "  >EzAdmin</div>
+            <!-- 头部区域（可配合layui 已有的水平导航） -->
+
+            <!-- 移动端显示 -->
+            <div class="ws-header-assist layui-layout-left layui-bg-gray ws-bg-light   " >
+
+                <div class="layui-input-wrap  "  >
+                    <div class="layui-input-prefix">
+                        <i class="layui-icon layui-icon-search"></i>
+                    </div>
+                    <input type="text" lay-affix="search" lay-filter="search" lay-options="{split: true}" placeholder="搜索…" class="layui-input search">
+                </div>
+
+            </div>
+
+
+
+
+            <div  class="ws-header-menu   layui-bg-gray ws-bg-light   ">
+                <ul class="layui-nav   layui-bg-gray ws-bg-light " >
+
+                    <li class="layui-nav-item layui-hide layui-show-sm-inline-block        ">
+                        <a href="javascript:;">nav 1</a></li>
+                    <li class="layui-nav-item layui-hide layui-show-sm-inline-block"><a href="javascript:;">nav 2</a></li>
+                    <li class="layui-nav-item layui-hide layui-show-sm-inline-block"><a href="javascript:;">nav 3</a></li>
+
+                    <li class="layui-nav-item layui-hide-sm  "  >
+                        <a href="javascript:;">
+                            <i class="layui-icon layui-icon-more-vertical"></i>
+                        </a>
+
+                        <dl class="layui-nav-child layui-nav-child-r">
+                            <dd><a href="javascript:;">menu 11</a></dd>
+                            <dd><a href="javascript:;">menu 22</a></dd>
+                            <hr>
+                            <dd><a href="javascript:;">退出</a></dd>
+                        </dl>
+                    </li>
+
+                </ul>
+                <div class="ws-header-more">
+                    <i class="layui-icon layui-icon-shrink-right"></i>
+                </div>
+
+                <div class="ws-header-tool ws-bg-light">
+                    <div class="  layui-form ws-header-theme">
+                        <input id="ID-header-theme-mode" lay-filter="switchfilter" type="checkbox"   name="CCC" value="2" lay-skin="switch">
+                        <div lay-checkbox    >
+                            <i class="layui-icon layui-icon-moon"></i> |
+                            <i class="layui-icon layui-icon-light"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="https://github.com/ezadmin126/ezadmin" style="height: 60px;" target="_blank" title="Github">
+                            <i class="layui-icon layui-icon-github layui-font-20"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-container" style="margin-top:70px">
+        <!-- 内容主体区域 -->
+        <div class="layui-row layui-col-space10">
+
+
+            <div class="layui-col-xs12 layui-col-md9">
+                <div class="layui-panel">
+                    <div class="layui-row layui-text" style="padding:30px">
+                        <div class="layui-col-md1">
+                            <img src="http://localhost:8080/static/info-img.png" style="width:47px;height:47px;border-radius:50%">
+                        </div>
+                        <div class="layui-col-md11  ">
+                            <div class="layui-serachlist-text">
+                                <h3><a href="">前端的进化？</a></h3>
+                                <p>2024-01-01
+                                    <i class="layui-icon-eye layui-icon"></i>12
+                                    <i class="layui-icon-dialogue layui-icon"></i>12
+                                    <i class="layui-icon-praise layui-icon"></i>12
+                                    <i class="layui-icon-tread layui-icon"></i>12
+
+                                </p>
+                                <p>在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。在前端技术的快速发展中找准你的定位，在思考与实践中沉淀。。</p>
+                                <p>
+                                    <span class="layui-badge layui-bg-green">前端</span>
+                                    <span class="layui-badge layui-bg-blue">性别</span>
+                                    <span class="layui-badge layui-bg-orange">谜</span>
+                                </p>
+                                <p style="text-align: right">
+                                    <button class="layui-btn layui-btn-primary layui-border">更多</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-xs12 layui-col-md3">
+                <div class="layui-row   layui-panel"  >
+                    <div class="layui-tab layui-tab-brief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">热门标签</li>
+
+                        </ul>
+                        <div class="layui-tab-content" style="padding:5px">
+                            <div class="layui-tab-item layui-show">
+                                <div class="layui-btn-container">
+                                    <button class="layui-btn layui-btn-primary layui-border">普通按钮按钮</button>
+                                    <button class="layui-btn layui-btn-primary layui-border">普通按钮</button>
+                                    <button class="layui-btn layui-btn-primary layui-border">按钮</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row   layui-panel" style="margin-top:40px">
+                    <div class="layui-tab layui-tab-brief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">最新发布</li>
+                        </ul>
+                        <div class="layui-tab-content" style="padding:15px">
+                            <div class="layui-tab-item layui-show layui-text">
+                                <p>1</p>
+                                <p>1</p>
+                                <p>1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row   layui-panel" style="margin-top:40px">
+                    <div class="layui-tab layui-tab-brief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">点击最多</li>
+                        </ul>
+                        <div class="layui-tab-content" style="padding:15px">
+                            <div class="layui-tab-item layui-show layui-text">
+                                <p>1</p>
+                                <p>1</p>
+                                <p>1</p>
+                            </div>s
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="layui-row footer layui-panel layui-col-space10">
+		<span class="layui-breadcrumb" lay-separator="|">
+		  <a href="">Copyright © 2010-现在 EzAdmin 版权所有</a>
+		  <a  target="_blank" rel="nofollow" href="https://beian.miit.gov.cn/">ICP备案证书号:苏ICP备20006003号</a>
+		</span>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.8/layui.js" integrity="sha512-wr2CJEbfG2lCok8dbfh12ZK76eVe0/4XRacTqUi+G1b77x+SpbVyMGn6nf0mWyvEuOAp2TfpMuq6U8fob09xgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script>
+    //JS
+    layui.use(['element', 'layer', 'form'], function(){
+        var form = layui.form;
+        var $=layui.$;
+        var util = layui.util;
+        form.render($("#switchtheme"));
+        var url="layui-theme-dark.css";
+        form.on('switch(switchfilter)',function(data){
+            var elem = data.elem; // 获得 checkbox 原始 DOM 对象
+            var checked = elem.checked; // 获得 checkbox 选中状态
+            var value = elem.value; // 获得 checkbox 值
+            var othis = data.othis; // 获得 checkbox 元素被替换后的 jQuery 对象
+
+            //layer.msg('checked 状态: '+ elem.checked);
+            if(elem.checked){
+                document.getElementById('layui_theme_css').setAttribute('href',url)
+                // $(".layui-header").removeClass("ws-bg-light");
+            }else{
+                document.getElementById('layui_theme_css').removeAttribute('href')
+                //$(".layui-header").addClass("ws-bg-light");
+            }
+        });
+
+        util.fixbar({});
+
+
+    });
+</script>
+</body>
+</html>
